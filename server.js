@@ -3,11 +3,11 @@ var serviceAccount = require('json/peernus-96580-firebase-adminsdk.json');
 var express = require('express');
 var app = express();
 
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount)
-});
-
 app.post("/createToken", function(req, res) {
+  
+  admin.initializeApp({
+    credential: admin.credential.cert(serviceAccount)
+  });
   var uid = req.params.nusnet;
   admin.auth().createCustomToken(uid)
     .then(function(customToken) {
@@ -20,3 +20,5 @@ app.post("/createToken", function(req, res) {
     });
 
 });
+
+app.listen(80, () => console.log('PeerNUS app listening on port 80!'));
