@@ -18,7 +18,7 @@ app.post("/createToken", function(req, res) {
       // Send token back to client
       console.log(customToken);
 
-      res.body.token = customToken;
+      //res.body.token = customToken;
       let messageData = { token : customToken };
       res.send(messageData);
     })
