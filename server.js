@@ -16,7 +16,8 @@ app.post("/createToken", function(req, res) {
     .then(function(customToken) {
       // Send token back to client
       console.log(customToken);
-      res.json({ token : customToken });
+      res.setHeader('Content-Type', 'application/json');
+      res.send(JSON.stringify({ token : customToken }));
     })
     .catch(function(error) {
       console.log("Error creating custom token:", error);
