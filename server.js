@@ -2,7 +2,6 @@ var admin = require('firebase-admin');
 var serviceAccount = require('json/peernus-96580-firebase-adminsdk.json');
 var express = require('express');
 var bodyParser = require('body-parser');
-var mime = require('mime-types');
 var app = express();
 
 app.use(bodyParser.json()); 
@@ -17,10 +16,7 @@ app.post("/createToken", function(req, res) {
     .then(function(customToken) {
       // Send token back to client
       console.log(customToken);
-
-      //res.body.token = customToken;
-      let messageData = { token : customToken };
-      res.send(messageData);
+      res.json({ token : customToken });
     })
     .catch(function(error) {
       console.log("Error creating custom token:", error);
