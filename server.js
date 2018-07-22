@@ -15,7 +15,6 @@ app.post("/createToken", function(req, res) {
   admin.auth().createCustomToken(uid)
     .then(function(customToken) {
       // Send token back to client
-      console.log(customToken);
       res.setHeader('Content-Type', 'application/json');
       res.send(JSON.stringify({ token : customToken }));
     })
