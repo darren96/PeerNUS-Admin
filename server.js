@@ -2,6 +2,7 @@ var admin = require('firebase-admin');
 var serviceAccount = require('json/peernus-96580-firebase-adminsdk.json');
 var express = require('express');
 var bodyParser = require('body-parser');
+var mime = require('mime-types');
 var app = express();
 
 app.use(bodyParser.json()); 

@@ -2230,6 +2230,7 @@
       "resolved": "https://registry.npmjs.org/mime-db/-/mime-db-1.35.0.tgz",
       "version": "1.35.0"
     },
+    "mime-type": "^3.0.5",
     "mime-types": {
       "integrity": "sha512-P1tKYHVSZ6uFo26mtnve4HQFE3koh1UWVkp8YUC+ESBHe945xWSoXuHHiGarDqcEZ+whpCDnlNw5LON0kLo+sw==",
       "requires": {
