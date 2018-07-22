@@ -16,9 +16,11 @@ app.post("/createToken", function(req, res) {
   admin.auth().createCustomToken(uid)
     .then(function(customToken) {
       // Send token back to client
-
-      res.json({ token : customToken });
       console.log(customToken);
+
+      res.body.token = customToken;
+      let messageData = { token : customToken };
+      res.send(messageData);
     })
     .catch(function(error) {
       console.log("Error creating custom token:", error);
