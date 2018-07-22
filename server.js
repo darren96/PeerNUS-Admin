@@ -22,6 +22,14 @@ app.post("/createToken", function(req, res) {
       console.log("Error creating custom token:", error);
     });
 
+  admin.auth().updateUser(uid, {
+    email: uid
+  }).then(function(userRecord) {
+    console.log("Successfully updated.");
+  }).catch(function(error) {
+    console.log("Error occured");
+  })
+
 });
 
 app.listen(process.env.PORT || 5000);
