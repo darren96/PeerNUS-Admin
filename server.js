@@ -9,7 +9,7 @@ admin.initializeApp({
 });
 
 app.post("/createToken", function(req, res) {
-  var uid = req.params.nusnet;
+  var uid = req.body.nusnet;
   admin.auth().createCustomToken(uid)
     .then(function(customToken) {
       // Send token back to client
