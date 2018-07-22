@@ -4,13 +4,11 @@ var express = require('express');
 var app = express();
 var server = require('http').createServer();
 
-app.listen(process.env.PORT || 5000);
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount)
+});
 
 app.post("/createToken", function(req, res) {
-  
-  admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount)
-  });
   var uid = req.params.nusnet;
   admin.auth().createCustomToken(uid)
     .then(function(customToken) {
@@ -23,3 +21,5 @@ app.post("/createToken", function(req, res) {
     });
 
 });
+
+app.listen(process.env.PORT || 5000);
