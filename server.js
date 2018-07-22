@@ -2,6 +2,12 @@ var admin = require('firebase-admin');
 var serviceAccount = require('json/peernus-96580-firebase-adminsdk.json');
 var express = require('express');
 var app = express();
+var server = require('http').createServer();
+var port = process.env.PORT || 3000;
+
+server.listen(port, function() {
+  console.log('Listening on ' + port);
+});
 
 app.post("/createToken", function(req, res) {
   
@@ -20,5 +26,3 @@ app.post("/createToken", function(req, res) {
     });
 
 });
-
-app.listen(80, () => console.log('PeerNUS app listening on port 80!'));
