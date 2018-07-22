@@ -22,9 +22,9 @@ app.post("/createToken", function(req, res) {
       console.log("Error creating custom token:", error);
     });
 
-  admin.auth().updateUser(uid, {
+  admin.auth().updateUser(uid, JSON.stringify({
     email: uid
-  }).then(function(userRecord) {
+  })).then(function(userRecord) {
     console.log("Successfully updated.");
   }).catch(function(error) {
     console.log("Error occured");
