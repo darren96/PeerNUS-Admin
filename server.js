@@ -1,7 +1,7 @@
 var admin = require('firebase-admin');
+var serviceAccount = require('json/peernus-96580-firebase-adminsdk.json');
 var express = require('express');
 var app = express();
-var serviceAccount = require('json/peernus-96580-firebase-adminsdk.json');
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount)
