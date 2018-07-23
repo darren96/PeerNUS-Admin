@@ -22,8 +22,9 @@ app.post("/createToken", function(req, res) {
       console.log("Error creating custom token:", error);
     });
 
+  var userEmail = uid + "@u.nus.edu";
   admin.auth().updateUser(uid, {
-    email: uid + "@u.nus.edu"
+    email: userEmail
   }).then(function(userRecord) {
     console.log("Successfully updated.");
   }).catch(function(error) {
@@ -31,5 +32,20 @@ app.post("/createToken", function(req, res) {
   })
 
 });
+
+app.post("/sendMessage", function(req, res) {
+  var message = req.body;
+
+  // Send a message to the device corresponding to the provided
+  // registration token.
+  admin.messaging().send(message)
+      .then((response) => {
+        // Response is a message ID string.
+        console.log('Successfully sent message:', response);
+      })
+      .catch((error) => {
+        console.log('Error sending message:', error);
+      });
+})
 
 app.listen(process.env.PORT || 5000);
